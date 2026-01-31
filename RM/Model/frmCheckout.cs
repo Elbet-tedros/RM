@@ -139,6 +139,9 @@ WHERE MainID = @id";
 
         private void frmCheckout_Load(object sender, EventArgs e)
         {
+            // ✅ Center Guna2MessageDialog on this form
+            guna2MessageDialog1.Parent = this;
+
             txtBillAmount.Text = amt.ToString();
             btnSave.Enabled = false; // disabled until valid input
         }

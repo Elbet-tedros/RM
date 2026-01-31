@@ -46,6 +46,8 @@ namespace RM.Model
 
             if (MainClass.SQL(qry, ht) > 0)
             {
+                // ✅ Center Guna2MessageDialog on this form
+                guna2MessageDialog1.Parent = this;
                 guna2MessageDialog1.Show("Saved Successfully..");
                 id = 0;
                 txtName.Text = "";

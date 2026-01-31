@@ -22,6 +22,7 @@ namespace RM.Model
         public int MainID = 0;
         private void frmBillList_Load(object sender, EventArgs e)
         {
+
             LoadDate();
         }
 

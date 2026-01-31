@@ -42,18 +42,32 @@ namespace RM.Model
 
         }
 
+        //private void frmPOS_Load(object sender, EventArgs e)
+        //{
+        //    guna2DataGridView1.BorderStyle = BorderStyle.FixedSingle;
+
+
+        //    AddCategory();
+
+        //    ProductPanel.Controls.Clear();
+        //    LoadProducts();
+
+        //    btnKot.Enabled = false;   // 🔴 disabled initially
+        //}
+
         private void frmPOS_Load(object sender, EventArgs e)
         {
+            guna2MessageDialog1.Parent = this; // ✅ CENTER FIX
+
             guna2DataGridView1.BorderStyle = BorderStyle.FixedSingle;
-
-           
             AddCategory();
-
             ProductPanel.Controls.Clear();
             LoadProducts();
-
-            btnKot.Enabled = false;   // 🔴 disabled initially
+            btnKot.Enabled = false;
+            btnCheckout.Enabled = false;
         }
+
+
         private void AddCategory()
         {
             string qry = "Select * from Category";
@@ -225,6 +239,14 @@ namespace RM.Model
             MainID = 0;
             lblTotal.Text = "00";
             OrderStatus = "";
+
+            lblWaiter.Visible = false;
+            lblTable.Visible = false;
+
+            lblDriverName.Text =
+            $"Customer Name: {customerName}  Phone: {customerPhone}";
+            lblDriverName.Visible = false;
+
             UpdateKotButtonState();
 
         }
@@ -401,7 +423,7 @@ SELECT SCOPE_IDENTITY();
 
             }
 
-            guna2MessageDialog1.Show("Saved successfuly");
+            guna2MessageDialog1.Show("Order Has Been Made");
             MainID = 0;
             detailID = 0;
             guna2DataGridView1.Rows.Clear();
@@ -465,6 +487,12 @@ SELECT SCOPE_IDENTITY();
             }
             OrderType = dt2.Rows[0]["orderType"].ToString();
             OrderStatus = dt2.Rows[0]["status"].ToString();
+            // ✅ Restore customer & driver info
+            customerName = dt2.Rows[0]["CustName"].ToString();
+            customerPhone = dt2.Rows[0]["CustPhone"].ToString();
+            driverID = Convert.ToInt32(dt2.Rows[0]["driverID"]);
+           
+
 
 
             // ✅ SAFE TO ACCESS dt2.Rows[0] BELOW
@@ -475,18 +503,32 @@ SELECT SCOPE_IDENTITY();
                 BtnDelivery.Checked = true;
                 lblWaiter.Visible = false;
                 lblTable.Visible = false;
+
+                lblDriverName.Text =
+                $"Customer: {customerName}  Phone: {customerPhone}  ";
+                lblDriverName.Visible = true;
+
+
             }
             else if (dt2.Rows[0]["orderType"].ToString() == "Take Away")
             {
                 btnTake.Checked = true;
                 lblWaiter.Visible = false;
                 lblTable.Visible = false;
+
+                lblDriverName.Text =
+                $"Customer Name: {customerName}  Phone: {customerPhone}";
+                lblDriverName.Visible = true;
+
             }
             else
             {
                 btnDin.Checked = true;
                 lblWaiter.Visible = true;
                 lblTable.Visible = true;
+
+
+                lblDriverName.Visible = false;
 
             }
 
@@ -520,6 +562,9 @@ SELECT SCOPE_IDENTITY();
 
 
         }
+
+
+       
 
         private void btnCheckout_Click(object sender, EventArgs e)
         {
@@ -701,10 +746,14 @@ SELECT SCOPE_IDENTITY();
             bool hasOrderType = !string.IsNullOrEmpty(OrderType);
             bool hasItems = guna2DataGridView1.Rows.Count > 0;
 
-            bool isCompleted = OrderStatus == "Complete";
+            bool isCompleted = OrderStatus == "Complete" || OrderStatus == "Paid";
 
             btnKot.Enabled = hasOrderType && hasItems && !isCompleted;
+            // Checkout button: ONLY when order is complete
+            btnCheckout.Enabled = (OrderStatus == "Complete");
         }
+
+
 
 
 

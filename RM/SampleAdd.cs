@@ -43,5 +43,16 @@ namespace RM
         {
 
         }
+
+        //protected override void OnLoad(EventArgs e)
+        //{
+        //    base.OnLoad(e);
+
+        //    if (guna2MessageDialog1 != null)
+        //    {
+        //        guna2MessageDialog1.Parent = this;
+        //    }
+        //}
+
     }
 }

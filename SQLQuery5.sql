@@ -43,3 +43,5 @@ SELECT MainID, status, orderType
 FROM tblMain
 ORDER BY MainID DESC;
 
+SELECT *
+FROM tblDetails;

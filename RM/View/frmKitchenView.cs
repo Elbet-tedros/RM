@@ -171,27 +171,79 @@ where m.MainID = " + mid + "";
 
         }
 
+        //private void b_click(object sender, EventArgs e)
+        //{
+        //    int id = Convert.ToInt32((sender as Guna.UI2.WinForms.Guna2Button).Tag.ToString());
+
+        //    guna2MessageDialog1.Icon = Guna.UI2.WinForms.MessageDialogIcon.Question;
+        //    guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.YesNo;
+
+        //    if (guna2MessageDialog1.Show("Are you sure you want to complete the order?") == DialogResult.Yes)
+        //    {
+        //        string qry = @"Update tblMain set status = 'Complete' where MainID = @ID";
+        //        Hashtable ht = new  Hashtable();
+        //        ht.Add("@ID", id);
+
+        //        if (MainClass.SQL(qry,ht)>0)
+        //        {
+        //            guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+        //            guna2MessageDialog1.Show("Saved Successfully");
+        //        }
+        //        GetOrders();
+        //    }
+        //}
+
+
         private void b_click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32((sender as Guna.UI2.WinForms.Guna2Button).Tag.ToString());
+            int id = Convert.ToInt32((sender as Guna.UI2.WinForms.Guna2Button).Tag);
 
-            guna2MessageDialog1.Icon = Guna.UI2.WinForms.MessageDialogIcon.Question;
-            guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.YesNo;
+            // Create a dummy invisible form to center the dialog on screen
+            Form dummy = new Form();
+            dummy.StartPosition = FormStartPosition.CenterScreen;
+            dummy.FormBorderStyle = FormBorderStyle.None;
+            dummy.ShowInTaskbar = false;
+            dummy.Size = new Size(0, 0);
+            dummy.Show(); // must show first
 
-            if (guna2MessageDialog1.Show("Are you sure you want to complete the order?") == DialogResult.Yes)
+            // Create Guna2MessageDialog
+            var dialog = new Guna.UI2.WinForms.Guna2MessageDialog
+            {
+                Parent = dummy, // centers on dummy, which is centered on screen
+                Icon = Guna.UI2.WinForms.MessageDialogIcon.Question,
+                Buttons = Guna.UI2.WinForms.MessageDialogButtons.YesNo,
+                Style = Guna.UI2.WinForms.MessageDialogStyle.Light // ✅ white background
+            };
+
+            if (dialog.Show("Are you sure you want to complete the order?") == DialogResult.Yes)
             {
                 string qry = @"Update tblMain set status = 'Complete' where MainID = @ID";
-                Hashtable ht = new  Hashtable();
+                Hashtable ht = new Hashtable();
                 ht.Add("@ID", id);
 
-                if (MainClass.SQL(qry,ht)>0)
+                if (MainClass.SQL(qry, ht) > 0)
                 {
-                    guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
-                    guna2MessageDialog1.Show("Saved Successfully");
+                    var successDialog = new Guna.UI2.WinForms.Guna2MessageDialog
+                    {
+                        Parent = dummy,
+                        Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                        Icon = Guna.UI2.WinForms.MessageDialogIcon.Information,
+                        Style = Guna.UI2.WinForms.MessageDialogStyle.Light // ✅ white background
+                    };
+
+                    successDialog.Show("Saved Successfully");
                 }
+
                 GetOrders();
             }
+
+            // Close the dummy form
+            dummy.Close();
         }
+
+
+
+
 
         private void print_click(object sender, EventArgs e)
         {

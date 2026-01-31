@@ -31,13 +31,20 @@ namespace RM.Model
                 qry = "Update category Set catName = @Name where catID = @id";
             }
 
-  Hashtable ht = new Hashtable();
+            Hashtable ht = new Hashtable();
             ht.Add("@id",id);
             ht.Add("@Name", txtName.Text);
 
            if( MainClass.SQL(qry, ht) > 0)
             {
+                // ✅ Dialog will now appear centered
+                // ✅ Center Guna2MessageDialog on this form
+                guna2MessageDialog1.Parent = this;
                 guna2MessageDialog1.Show("Saved Successfully..");
+
+
+
+
                 id= 0;
                 txtName.Text = "";
                 txtName.Focus();
@@ -46,6 +53,8 @@ namespace RM.Model
 
 
         }
+
+       
 
 
     }

@@ -19,7 +19,7 @@ namespace RM.View
             InitializeComponent();
         }
 
-      
+
 
         private void frmProductView_Load(object sender, EventArgs e)
         {
@@ -67,7 +67,7 @@ namespace RM.View
                 frmProductAdd frm = new frmProductAdd();
                 frm.id = Convert.ToInt32(guna2DataGridView1.CurrentRow.Cells["dgvid"].Value);
                 frm.cID = Convert.ToInt32(guna2DataGridView1.CurrentRow.Cells["dgvcatID"].Value);
-                
+
                 MainClass.BlurBackground(frm);
                 GetData();
 
@@ -75,29 +75,77 @@ namespace RM.View
 
 
             }
+            //if (guna2DataGridView1.CurrentCell.OwningColumn.Name == "dgvdel")
+            //{
+            //    //need to confirm before delete
+            //    guna2MessageDialog1.Icon = Guna.UI2.WinForms.MessageDialogIcon.Question;
+            //    guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.YesNo;
+            //    if (guna2MessageDialog1.Show("Are you sure you want to delete?") == DialogResult.Yes)
+            //    {
+
+            //        int id = Convert.ToInt32(guna2DataGridView1.CurrentRow.Cells["dgvid"].Value);
+            //        string qry = "Delete from products where pID = " + id + "";
+            //        Hashtable ht = new Hashtable();
+
+            //        MainClass.SQL(qry, ht);
+            //        guna2MessageDialog1.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
+            //        guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            //        guna2MessageDialog1.Show("Deleted successfully");
+            //        GetData();
+            //    }
+
+
+
+
+            //}
+
+
             if (guna2DataGridView1.CurrentCell.OwningColumn.Name == "dgvdel")
             {
                 //need to confirm before delete
-                guna2MessageDialog1.Icon = Guna.UI2.WinForms.MessageDialogIcon.Question;
-                guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.YesNo;
-                if (guna2MessageDialog1.Show("Are you sure you want to delete?") == DialogResult.Yes)
-                {
+                DialogResult dr = MessageBox.Show(
+                             this.FindForm(),
+                               "Are you sure you want to delete?",
+                               "Confirmation",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Question
+                                                        );
 
+                if (dr == DialogResult.Yes)
+                {
                     int id = Convert.ToInt32(guna2DataGridView1.CurrentRow.Cells["dgvid"].Value);
-                    string qry = "Delete from products where pID = " + id + "";
+                    string qry = "Delete from products where PID = " + id;
                     Hashtable ht = new Hashtable();
 
                     MainClass.SQL(qry, ht);
-                    guna2MessageDialog1.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
-                    guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
-                    guna2MessageDialog1.Show("Deleted successfully");
+
+                    MessageBox.Show(
+                        this.FindForm(),
+                        "Deleted successfully",
+                        "Success",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
+
                     GetData();
                 }
 
 
 
 
+
             }
+
+
+
+
+
+
+
+
+
+
+
 
         }
 
