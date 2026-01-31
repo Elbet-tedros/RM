@@ -248,7 +248,8 @@ where m.MainID = " + mid + "";
         private void print_click(object sender, EventArgs e)
         {
             int MainID = Convert.ToInt32((sender as Guna.UI2.WinForms.Guna2Button).Tag);
-
+            
+           
             string qry = @"
         SELECT *
         FROM tblMain m
@@ -270,9 +271,15 @@ where m.MainID = " + mid + "";
             }
 
             frmPrint frm = new frmPrint();
+           
             rptKitchen rpt = new rptKitchen();
-
             rpt.SetDataSource(dt);
+
+            string receiptNo = MainID.ToString("D7");
+            rpt.SetParameterValue("ReceiptNo", receiptNo);
+
+
+            
             frm.crystalReportViewer1.ReportSource = rpt;
             frm.crystalReportViewer1.Refresh();
             frm.Show();

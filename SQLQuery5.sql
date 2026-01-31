@@ -45,3 +45,31 @@ ORDER BY MainID DESC;
 
 SELECT *
 FROM tblDetails;
+
+
+
+CREATE TABLE ReceiptSequence
+(
+    ID INT IDENTITY(1,1) PRIMARY KEY
+);
+
+INSERT INTO ReceiptSequence DEFAULT VALUES;
+SELECT SCOPE_IDENTITY();
+
+INSERT INTO Orders (TableName, WaiterName, TotalAmount)
+VALUES (@TableName, @WaiterName, @TotalAmount);
+
+SELECT SCOPE_IDENTITY();
+
+
+DELETE FROM tblMain;
+
+DBCC CHECKIDENT ('tblMain', RESEED, 0);
+
+DBCC CHECKIDENT ('tblMain');
+
+DELETE FROM tblDetails;  -- first, because it references tblMain
+DELETE FROM tblMain;
+
+DBCC CHECKIDENT ('tblMain', RESEED, 0);
+DBCC CHECKIDENT ('tblDetails', RESEED, 0);

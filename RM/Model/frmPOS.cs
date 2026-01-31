@@ -385,9 +385,41 @@ SELECT SCOPE_IDENTITY();
             cmd.Parameters.AddWithValue("@CustPhone", customerPhone);
 
 
-            if (MainClass.con.State == ConnectionState.Closed) { MainClass.con.Open(); }
-            if (MainID == 0) { MainID = Convert.ToInt32(cmd.ExecuteScalar()); } else { cmd.ExecuteNonQuery(); }
-            if (MainClass.con.State == ConnectionState.Open) { MainClass.con.Close(); }
+            //if (MainClass.con.State == ConnectionState.Closed) { MainClass.con.Open(); }
+            //if (MainID == 0) { MainID = Convert.ToInt32(cmd.ExecuteScalar()); } else { cmd.ExecuteNonQuery(); }
+            //if (MainClass.con.State == ConnectionState.Open) { MainClass.con.Close(); }
+
+
+            if (MainClass.con.State == ConnectionState.Closed)
+            {
+                MainClass.con.Open();
+            }
+
+            if (MainID == 0)
+            {
+                MainID = Convert.ToInt32(cmd.ExecuteScalar());
+
+                // ✅ Generate 7-digit receipt number
+                string receiptNo = MainID.ToString("D7");
+
+                // Show it somewhere (for example MessageBox or label)
+                MessageBox.Show("Receipt No: " + receiptNo);
+
+                // Optional: store it in a label if you have one
+                // lblReceiptNo.Text = receiptNo;
+            }
+            else
+            {
+                cmd.ExecuteNonQuery();
+            }
+
+            if (MainClass.con.State == ConnectionState.Open)
+            {
+                MainClass.con.Close();
+            }
+
+
+
 
             foreach (DataGridViewRow row in guna2DataGridView1.Rows)
             {
