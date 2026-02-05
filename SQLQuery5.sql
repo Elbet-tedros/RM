@@ -73,3 +73,43 @@ DELETE FROM tblMain;
 
 DBCC CHECKIDENT ('tblMain', RESEED, 0);
 DBCC CHECKIDENT ('tblDetails', RESEED, 0);
+
+DROP TABLE tblDetails;
+DROP TABLE tblMain;
+
+CREATE TABLE tblMain
+(
+    MainID INT IDENTITY(1,1) PRIMARY KEY,
+    aData DATE,
+    aTime VARCHAR(15),
+    TableName VARCHAR(10),
+    WaiterName VARCHAR(15),
+    status VARCHAR(15),
+    orderType VARCHAR(15),
+    total FLOAT,
+    received FLOAT,
+    change FLOAT
+);
+
+CREATE TABLE tblDetails
+(
+    DetailID INT IDENTITY(1,1) PRIMARY KEY,
+    MainID INT,
+    proID INT,
+    qty INT,
+    price FLOAT,
+    amount FLOAT
+);
+
+ALTER TABLE tblMain ADD
+    driverID INT NULL,
+    CustName VARCHAR(50) NULL,
+    CustPhone VARCHAR(20) NULL;
+GO
+
+ALTER TABLE tblMain
+ADD PaidDate DATE NULL;
+
+
+EXEC sp_help tblMain;
+SELECT DB_NAME();

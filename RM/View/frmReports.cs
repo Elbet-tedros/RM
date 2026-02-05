@@ -21,52 +21,52 @@ namespace RM.View
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            string qry = @"Select * from products ";
-            SqlCommand cmd = new SqlCommand(qry, MainClass.con);
-            MainClass.con.Open();
+            string qry = "SELECT * FROM products";
+
+            SqlDataAdapter da = new SqlDataAdapter(qry, MainClass.con);
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
-            MainClass.con.Close();
 
-
-
-            frmPrint frm = new frmPrint();
             rptMenu cr = new rptMenu();
 
-            //cr.SetDatabaseLogon("sa", "123");
             cr.SetDataSource(dt);
+            cr.Refresh();   // VERY IMPORTANT
+
+            frmPrint frm = new frmPrint();
             frm.crystalReportViewer1.ReportSource = cr;
-            frm.crystalReportViewer1.Refresh();
+            frm.crystalReportViewer1.RefreshReport(); // better than Refresh()
             frm.Show();
         }
+
 
         private void btnStaff_Click(object sender, EventArgs e)
         {
-            string qry = @"Select * from Staff ";
-            SqlCommand cmd = new SqlCommand(qry, MainClass.con);
-            MainClass.con.Open();
+            string qry = "SELECT * FROM Staff";
+
+            SqlDataAdapter da = new SqlDataAdapter(qry, MainClass.con);
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
-            MainClass.con.Close();
 
-
+            rptStaffList cr = new rptStaffList();
+            cr.SetDataSource(dt);
+            cr.Refresh();
 
             frmPrint frm = new frmPrint();
-            rptStaffList cr = new rptStaffList();
-
-            //cr.SetDatabaseLogon("sa", "123");
-            cr.SetDataSource(dt);
             frm.crystalReportViewer1.ReportSource = cr;
-            frm.crystalReportViewer1.Refresh();
+            frm.crystalReportViewer1.RefreshReport();
             frm.Show();
         }
+
 
         private void btnSaleCat_Click(object sender, EventArgs e)
         {
             frmSaleByCategory frm = new frmSaleByCategory();
             frm.ShowDialog();
+        }
+
+        private void frmReports_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

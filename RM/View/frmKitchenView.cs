@@ -231,7 +231,7 @@ where m.MainID = " + mid + "";
                         Style = Guna.UI2.WinForms.MessageDialogStyle.Light // ✅ white background
                     };
 
-                    successDialog.Show("Saved Successfully");
+                    //successDialog.Show("Saved Successfully");
                 }
 
                 GetOrders();
@@ -247,6 +247,7 @@ where m.MainID = " + mid + "";
 
         private void print_click(object sender, EventArgs e)
         {
+
             int MainID = Convert.ToInt32((sender as Guna.UI2.WinForms.Guna2Button).Tag);
             
            
@@ -273,13 +274,18 @@ where m.MainID = " + mid + "";
             frmPrint frm = new frmPrint();
            
             rptKitchen rpt = new rptKitchen();
-            rpt.SetDataSource(dt);
+           
 
             string receiptNo = MainID.ToString("D7");
+            rpt.SetDataSource(dt);
             rpt.SetParameterValue("ReceiptNo", receiptNo);
 
+            //set printer name
+            //rpt.PrintOptions.PrinterName = "POS-80"; //change to ur real printer name
 
-            
+            //send to printer
+           // rpt.PrintToPrinter(1, false, 0, 0);
+
             frm.crystalReportViewer1.ReportSource = rpt;
             frm.crystalReportViewer1.Refresh();
             frm.Show();

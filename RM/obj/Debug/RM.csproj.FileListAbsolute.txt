@@ -51,3 +51,8 @@ C:\Users\hp\Desktop\source\repos\RM\RM\bin\Debug\CrystalDecisions.Windows.Forms.
 C:\Users\hp\Desktop\source\repos\RM\RM\obj\Debug\RM.frmPrint.resources
 C:\Users\hp\Desktop\source\repos\RM\RM\obj\Debug\RM.View.frmReports.resources
 C:\Users\hp\Desktop\source\repos\RM\RM\obj\Debug\RM.Reports.frmSaleByCategory.resources
+C:\Users\hp\Desktop\source\repos\RM\RM\bin\Debug\RM.exe.manifest
+C:\Users\hp\Desktop\source\repos\RM\RM\bin\Debug\RM.application
+C:\Users\hp\Desktop\source\repos\RM\RM\obj\Debug\RM.TrustInfo.xml
+C:\Users\hp\Desktop\source\repos\RM\RM\obj\Debug\RM.exe.manifest
+C:\Users\hp\Desktop\source\repos\RM\RM\obj\Debug\RM.application

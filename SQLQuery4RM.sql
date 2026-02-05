@@ -23,3 +23,18 @@ DROP TABLE products;
 
 
 select pID,pName,pPrice,CategoryID,c.catName from products p inner join category c on c.catID = p.CategoryID
+
+SELECT DB_NAME();
+
+SELECT TOP 10 *
+FROM products
+ORDER BY pID ASC;
+
+DELETE FROM products
+WHERE pID IN (
+    SELECT TOP 10 pID
+    FROM products
+    ORDER BY pID ASC
+);
+
+DELETE FROM staff;

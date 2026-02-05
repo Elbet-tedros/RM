@@ -65,6 +65,8 @@ namespace RM.Model
             LoadProducts();
             btnKot.Enabled = false;
             btnCheckout.Enabled = false;
+            btnHold.Enabled = false;
+
         }
 
 
@@ -781,8 +783,16 @@ SELECT SCOPE_IDENTITY();
             bool isCompleted = OrderStatus == "Complete" || OrderStatus == "Paid";
 
             btnKot.Enabled = hasOrderType && hasItems && !isCompleted;
+
+            // HOLD → only needs items
+            btnHold.Enabled = hasItems;
+
+
             // Checkout button: ONLY when order is complete
             btnCheckout.Enabled = (OrderStatus == "Complete");
+
+
+
         }
 
 

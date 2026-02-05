@@ -49,6 +49,9 @@ namespace RM
         {
             lblUser.Text = MainClass.USER;
             _obj = this;
+
+            // LOAD HOME PAGE BY DEFAULT
+            AddControls(new frmHome());
         }
 
         private void btnHome_Click(object sender, EventArgs e)
@@ -96,6 +99,11 @@ namespace RM
         private void btnReports_Click(object sender, EventArgs e)
         {
             AddControls(new frmReports());
+        }
+
+        private void lblUser_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

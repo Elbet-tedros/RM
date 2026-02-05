@@ -49,7 +49,10 @@
             this.btnAdd.HoverState.ImageSize = new System.Drawing.Size(57, 57);
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
             this.btnAdd.ImageFlip = Guna.UI2.WinForms.Enums.FlipOrientation.Normal;
+            this.btnAdd.ImageSize = new System.Drawing.Size(80, 80);
+            this.btnAdd.Location = new System.Drawing.Point(27, 74);
             this.btnAdd.PressedState.ImageSize = new System.Drawing.Size(55, 55);
+            this.btnAdd.Size = new System.Drawing.Size(77, 73);
             this.btnAdd.UseTransparentBackground = true;
             // 
             // label2

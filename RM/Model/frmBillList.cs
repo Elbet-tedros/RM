@@ -94,8 +94,25 @@ AND NOT (
                 frmPrint frm = new frmPrint();
                 rptBill cr = new rptBill();
 
+
+                string receiptNo = MainID.ToString("D7");
+
+
+
                 //cr.SetDatabaseLogon("sa", "123");
                 cr.SetDataSource(dt);
+
+                // Pass parameter to report
+                cr.SetParameterValue("ReceiptNo", receiptNo);
+
+                // 🔹 set your printer name here
+                //cr.PrintOptions.PrinterName = "POS-80"; // change to your printer name
+
+                // 🔹 print directly
+                //cr.PrintToPrinter(1, false, 0, 0);
+
+
+
                 frm.crystalReportViewer1.ReportSource = cr;
                 frm.crystalReportViewer1.Refresh();
                 frm.Show();

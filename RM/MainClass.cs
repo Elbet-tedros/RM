@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 using System.Windows.Forms;
 
 
@@ -13,10 +14,11 @@ namespace RM
 {
     class MainClass
     {
-        public static readonly string con_string= "Data Source=LAPTOP-2GJ2F7U2;Initial Catalog=RM;Integrated Security = True;";
+        // public static readonly string con_string= "Data Source=LAPTOP-2GJ2F7U2;Initial Catalog=RM;Integrated Security = True;";
         //LAPTOP-2GJ2F7U2
         //Data Source = LAPTOP - 2GJ2F7U2;Initial Catalog = RM; Integrated Security = True
-
+        public static readonly string con_string =
+                    ConfigurationManager.ConnectionStrings["RM"].ConnectionString;
         public static SqlConnection con=new SqlConnection(con_string);
 
 

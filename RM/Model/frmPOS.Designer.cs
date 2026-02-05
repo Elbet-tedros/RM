@@ -52,7 +52,7 @@
             this.dgvAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2MessageDialog1 = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.lblDriverName = new System.Windows.Forms.Label();
-           // this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgvdel = new System.Windows.Forms.DataGridViewImageColumn();
             this.btnExit = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -126,9 +126,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(107, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 37);
+            this.label1.Size = new System.Drawing.Size(144, 37);
             this.label1.TabIndex = 2;
-            this.label1.Text = "POS";
+            this.label1.Text = "Take Order";
             // 
             // guna2Panel2
             // 
@@ -364,14 +364,15 @@
             // 
             // dataGridViewImageColumn1
             // 
-            //this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            //this.dataGridViewImageColumn1.FillWeight = 40F;
-            //this.dataGridViewImageColumn1.HeaderText = "";
-            //this.dataGridViewImageColumn1.Image = global::RM.Properties.Resources.delete_edit;
-            //this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            //this.dataGridViewImageColumn1.MinimumWidth = 40;
-            //this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            //this.dataGridViewImageColumn1.Width = 40;
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewImageColumn1.FillWeight = 40F;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = global::RM.Properties.Resources.delete_edit;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.MinimumWidth = 40;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Width = 40;
             // 
             // txtSearch
             // 
@@ -411,7 +412,7 @@
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExit.BackColor = System.Drawing.Color.Transparent;
-            this.btnExit.Image = global::RM.Properties.Resources.power;
+            this.btnExit.Image = global::RM.Properties.Resources.close;
             this.btnExit.ImageRotate = 0F;
             this.btnExit.Location = new System.Drawing.Point(1405, 24);
             this.btnExit.Name = "btnExit";
@@ -434,9 +435,8 @@
             this.btnDin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnDin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnDin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(10)))), ((int)(((byte)(30)))));
-            this.btnDin.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnDin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDin.ForeColor = System.Drawing.Color.White;
-            this.btnDin.Image = ((System.Drawing.Image)(resources.GetObject("btnDin.Image")));
             this.btnDin.Location = new System.Drawing.Point(978, 20);
             this.btnDin.Name = "btnDin";
             this.btnDin.Size = new System.Drawing.Size(109, 81);
@@ -456,9 +456,8 @@
             this.btnTake.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnTake.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnTake.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(10)))), ((int)(((byte)(30)))));
-            this.btnTake.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnTake.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTake.ForeColor = System.Drawing.Color.White;
-            this.btnTake.Image = ((System.Drawing.Image)(resources.GetObject("btnTake.Image")));
             this.btnTake.Location = new System.Drawing.Point(863, 18);
             this.btnTake.Name = "btnTake";
             this.btnTake.Size = new System.Drawing.Size(109, 81);
@@ -478,9 +477,8 @@
             this.BtnDelivery.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.BtnDelivery.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.BtnDelivery.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(10)))), ((int)(((byte)(30)))));
-            this.BtnDelivery.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BtnDelivery.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnDelivery.ForeColor = System.Drawing.Color.White;
-            this.BtnDelivery.Image = ((System.Drawing.Image)(resources.GetObject("BtnDelivery.Image")));
             this.BtnDelivery.Location = new System.Drawing.Point(748, 20);
             this.BtnDelivery.Name = "BtnDelivery";
             this.BtnDelivery.Size = new System.Drawing.Size(109, 81);
@@ -499,14 +497,13 @@
             this.btnKot.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnKot.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnKot.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(10)))), ((int)(((byte)(30)))));
-            this.btnKot.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnKot.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKot.ForeColor = System.Drawing.Color.White;
-            this.btnKot.Image = ((System.Drawing.Image)(resources.GetObject("btnKot.Image")));
             this.btnKot.Location = new System.Drawing.Point(633, 20);
             this.btnKot.Name = "btnKot";
             this.btnKot.Size = new System.Drawing.Size(109, 81);
             this.btnKot.TabIndex = 6;
-            this.btnKot.Text = "KOT";
+            this.btnKot.Text = "Send To Kitchen";
             this.btnKot.Click += new System.EventHandler(this.btnKot_Click);
             // 
             // btnBill
@@ -520,9 +517,8 @@
             this.btnBill.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnBill.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnBill.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(10)))), ((int)(((byte)(30)))));
-            this.btnBill.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnBill.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBill.ForeColor = System.Drawing.Color.White;
-            this.btnBill.Image = ((System.Drawing.Image)(resources.GetObject("btnBill.Image")));
             this.btnBill.Location = new System.Drawing.Point(518, 18);
             this.btnBill.Name = "btnBill";
             this.btnBill.Size = new System.Drawing.Size(109, 81);
@@ -541,9 +537,8 @@
             this.btnHold.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnHold.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnHold.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(10)))), ((int)(((byte)(30)))));
-            this.btnHold.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnHold.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHold.ForeColor = System.Drawing.Color.White;
-            this.btnHold.Image = ((System.Drawing.Image)(resources.GetObject("btnHold.Image")));
             this.btnHold.Location = new System.Drawing.Point(403, 20);
             this.btnHold.Name = "btnHold";
             this.btnHold.Size = new System.Drawing.Size(109, 81);
@@ -553,7 +548,7 @@
             // 
             // btnNew
             // 
-            this.btnNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnNew.BackColor = System.Drawing.Color.Transparent;
             this.btnNew.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(10)))), ((int)(((byte)(30)))));
             this.btnNew.BorderRadius = 10;
             this.btnNew.BorderThickness = 2;
@@ -562,14 +557,14 @@
             this.btnNew.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnNew.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnNew.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(10)))), ((int)(((byte)(30)))));
-            this.btnNew.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnNew.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNew.ForeColor = System.Drawing.Color.White;
-            this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
             this.btnNew.Location = new System.Drawing.Point(286, 18);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(109, 81);
             this.btnNew.TabIndex = 3;
             this.btnNew.Text = "New";
+            this.btnNew.UseTransparentBackground = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // guna2PictureBox1
@@ -648,5 +643,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvAmount;
         private System.Windows.Forms.DataGridViewImageColumn dgvdel;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
     }
 }

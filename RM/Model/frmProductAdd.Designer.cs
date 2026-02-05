@@ -144,7 +144,8 @@
             // 
             // txtImage
             // 
-            this.txtImage.Image = global::RM.Properties.Resources.home4;
+            this.txtImage.BackColor = System.Drawing.Color.Transparent;
+            this.txtImage.Image = global::RM.Properties.Resources.image2;
             this.txtImage.ImageRotate = 0F;
             this.txtImage.Location = new System.Drawing.Point(617, 123);
             this.txtImage.Name = "txtImage";
@@ -153,6 +154,7 @@
             this.txtImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.txtImage.TabIndex = 12;
             this.txtImage.TabStop = false;
+            this.txtImage.UseTransparentBackground = true;
             // 
             // frmProductAdd
             // 

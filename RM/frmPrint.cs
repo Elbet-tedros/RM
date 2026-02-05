@@ -21,5 +21,10 @@ namespace RM
         {
             btnMax.PerformClick();
         }
+
+        private void crystalReportViewer1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
